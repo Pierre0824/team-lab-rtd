@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
+
 import datetime
 import re
-
 import f5_sphinx_theme
 
 # -- Project information -----------------------------------------------------
@@ -9,102 +9,96 @@ import f5_sphinx_theme
 project = "F5 Control-Plane Security Onion Lab Guide"
 author = "F5 Networks"
 
-start_year = "2017"
+start_year = "2025"
 current_year = datetime.date.today().strftime("%Y")
-copyright_year = (
-    start_year if start_year == current_year else f"{start_year}-{current_year}"
-)
-copyright = f"{copyright_year}, {author}"
+if start_year == current_year:
+    copyright_year = start_year
+else:
+    copyright_year = f"{start_year}-{current_year}"
 
-# The short X.Y version
+copyright = f"{copyright_year}, F5 Networks"
+
 version = "1.0"
-# The full version, including alpha/beta/rc tags
-release = "1.0"
+release = "1.0.0"
+
+language = "en"
 
 # -- General configuration ---------------------------------------------------
 
-master_doc = "index"
-language = "en"
-
 extensions = [
-    # Keep this minimal for RTD reliability
     "sphinx.ext.todo",
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.intersphinx",
-    "sphinx.ext.coverage",
     "sphinx.ext.ifconfig",
     "sphinx.ext.doctest",
+    "recommonmark",
 ]
-
-# Avoid duplicate section label warnings across multiple files
-autosectionlabel_prefix_document = True
 
 templates_path = ["_templates"]
 
 source_suffix = {
     ".rst": "restructuredtext",
+    ".md": "markdown",
 }
+
+master_doc = "index"
 
 exclude_patterns = [
     "_build",
-    "Thumbs.db",
     ".DS_Store",
+    "Thumbs.db",
     ".github",
 ]
 
 pygments_style = "sphinx"
-
 todo_include_todos = True
-todo_emit_warnings = True
 
-# Optional substitutions you had earlier
-rst_epilog = """
-.. |platform| replace:: Docker
-"""
-
-# -- Options for HTML output -------------------------------------------------
+# -- HTML output -------------------------------------------------------------
 
 html_theme = "f5_sphinx_theme"
 html_theme_path = f5_sphinx_theme.get_html_theme_path()
 
-html_theme_options = {
-    "next_prev_link": True,
-    "version_selector": True,
-    "base_url": "/",
-    "sidebar_toc_maxdepth": "2",
-    "hide_right_menu": True,
-}
+html_title = project
+html_short_title = "Home"
+
+html_static_path = ["_static"]
 
 html_sidebars = {
     "**": [
         "searchbox.html",
         "localtoc.html",
         "globaltoc.html",
-        "relations.html",
     ]
 }
 
-html_context = {
-    "version_meta_path": "versions.json",
-    "project_safe": re.sub(r"[^A-Za-z0-9]+", "", project),
+html_theme_options = {
+    "site_name": project,
+    "next_prev_link": True,
+    "hide_right_menu": False,          # show "On this page"
+    "hide_right_menu_home": True,      # hide only on homepage
+    "sidebar_toc_maxdepth": 2,
+    "base_url": "/",
+    "show_project": True,
 }
 
-html_static_path = ["_static"]
-
-html_title = project
-html_short_title = "Home"
-html_last_updated_fmt = ""
-
-html_show_sourcelink = True
 html_show_sphinx = False
 html_show_copyright = True
+html_last_updated_fmt = "%Y-%m-%d %H:%M:%S"
 
-# -- Options for HTMLHelp output --------------------------------------------
+# -- GitHub integration (Edit on GitHub) ------------------------------------
 
-htmlhelp_basename = "team_lab_rtd_docs"
+html_context = {
+    "display_github": True,
+    "github_user": "Pierre0824",
+    "github_repo": "team-lab-rtd",
+    "github_version": "main",
+    "conf_py_path": "/site/docs/",
+}
 
-# -- Options for linkcheck ---------------------------------------------------
+# -- Autosectionlabel --------------------------------------------------------
 
-linkcheck_retries = 2
-linkcheck_timeout = 5
-linkcheck_anchors = False
+autosectionlabel_prefix_document = True
+
+# -- Todo options ------------------------------------------------------------
+
+todo_emit_warnings = True
