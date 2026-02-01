@@ -1,3 +1,5 @@
-# Sphinx is already installed by RTD per build log, so not required here.
-# Install the local F5 theme from this repo:
--e ./site/f5-sphinx-theme
+# Core Sphinx extensions (keep minimal; add more only if you need them)
+recommonmark
+
+# Install F5 Sphinx theme directly from GitHub (no local path needed)
+git+https://github.com/f5devcentral/f5-sphinx-theme.git@master
