@@ -65,7 +65,7 @@ rst_epilog = """
 # -- Options for HTML output -------------------------------------------------
 
 html_theme = "f5_sphinx_theme"
-html_theme_path = [f5_sphinx_theme.get_html_theme_path()]
+html_theme_path = f5_sphinx_theme.get_html_theme_path()
 
 html_theme_options = {
     "next_prev_link": True,
