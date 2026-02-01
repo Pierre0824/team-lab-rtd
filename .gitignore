@@ -1,0 +1,10 @@
+# Python
+site/.venv/
+**/__pycache__/
+*.pyc
+
+# Sphinx output
+site/docs/_build/
+
+# macOS
+.DS_Store
