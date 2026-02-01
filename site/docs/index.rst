@@ -43,6 +43,7 @@ Getting Started
 .. toctree::
    :maxdepth: 1
 
+   prerequisites
    overview
    roadmap
    ihealth
@@ -84,6 +85,7 @@ Reference materials and operational guidance.
    :maxdepth: 1
 
    checklist
+   style_checklist
    references
 
 ---
