@@ -16,13 +16,12 @@ master_doc = 'index'
 language = 'en'
 
 extensions = [
-    'sphinx.ext.todo',
-    'sphinx.ext.autosectionlabel',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.coverage',
-    'sphinx.ext.ifconfig',
-    'sphinx.ext.doctest',
-    'recommonmark',
+    "sphinx.ext.todo",
+    "sphinx.ext.autosectionlabel",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.coverage",
+    "sphinx.ext.ifconfig",
+    "sphinx.ext.doctest",
 ]
 
 todo_include_todos = True
